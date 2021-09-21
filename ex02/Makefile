@@ -5,18 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: isfernan <isfernan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/09/20 18:10:35 by isfernan          #+#    #+#              #
-#    Updated: 2021/09/21 15:16:50 by isfernan         ###   ########.fr        #
+#    Created: 2021/09/21 17:16:22 by isfernan          #+#    #+#              #
+#    Updated: 2021/09/21 17:16:31 by isfernan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS 		= main.cpp
+SRCS 		= main.cpp	mutantstack.cpp
 
 OBJS 		= $(SRCS:.cpp=.o)
 
 CXXFLAGS	= -Wall -Werror -Wextra
 
-NAME		= Easy_find
+NAME		= Span
 
 all:		$(NAME)
 
