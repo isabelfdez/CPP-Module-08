@@ -6,7 +6,7 @@
 /*   By: isfernan <isfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:32:20 by isfernan          #+#    #+#             */
-/*   Updated: 2021/09/21 17:10:06 by isfernan         ###   ########.fr       */
+/*   Updated: 2021/09/24 12:00:09 by isfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,14 @@ void Span::addNumber(std::list<int>::iterator begin, std::list<int>::iterator en
 int Span::shortestSpan()
 {
 	std::list<int> aux;
-	std::list<int>::const_iterator it1 = this->_lst.begin();
-	std::list<int>::const_iterator it2 = this->_lst.begin();
+	std::list<int> aux2(this->_lst);
+	aux2.sort();	
+	std::list<int>::const_iterator it1 = aux2.begin();
+	std::list<int>::const_iterator it2 = aux2.begin();
 	it2++;
 	if (this->_lst.size() < 2)
 		throw CannotSpanException();
-	while (it1 != this->_lst.end() && it2 != this->_lst.end())
+	while (it1 != aux2.end() && it2 != aux2.end())
 	{
 		aux.push_back(abs(*it2 - *it1));
 		it1++;

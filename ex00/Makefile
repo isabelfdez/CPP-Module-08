@@ -6,7 +6,7 @@
 #    By: isfernan <isfernan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/20 18:10:35 by isfernan          #+#    #+#              #
-#    Updated: 2021/09/21 15:16:50 by isfernan         ###   ########.fr        #
+#    Updated: 2021/09/24 11:55:04 by isfernan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,16 @@ SRCS 		= main.cpp
 
 OBJS 		= $(SRCS:.cpp=.o)
 
-CXXFLAGS	= -Wall -Werror -Wextra
+CXX			= clang++ 
+
+CXXFLAGS	= -Wall -Werror -Wextra -std=c++98
 
 NAME		= Easy_find
 
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-			-@clang++ $(CXXFLAGS) -o $(NAME) $(OBJS) -std=c++98
+			$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 clean:
 			-@rm -f $(OBJS)

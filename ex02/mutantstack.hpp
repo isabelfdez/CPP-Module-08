@@ -6,7 +6,7 @@
 /*   By: isfernan <isfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 17:16:42 by isfernan          #+#    #+#             */
-/*   Updated: 2021/09/21 19:19:36 by isfernan         ###   ########.fr       */
+/*   Updated: 2021/09/24 12:21:11 by isfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,27 @@ template <class T>
 class MutantStack : public std::stack<T>
 {
 	public:
-		MutantStack();
-		MutantStack(MutantStack & obj);
-		~MutantStack();
+		MutantStack() : std::stack<T>() { };
+		MutantStack(MutantStack<T> & obj) : std::stack<T>(obj) { };
+		~MutantStack() { };
 		
-		MutantStack & operator=(MutantStack & obj);
+		MutantStack & operator=(MutantStack & obj) { this->c = obj.c; return (*this); };
 		
-		typedef typename std::stack<T>::container_type::iterator iter;
-        iter	begin();
-        iter	end();
+		typedef typename std::stack<T>::container_type::iterator iterator;
+        iterator	begin() { return (this->c.begin()); };
+        iterator	end() { return (this->c.end()); };
 
-        typedef typename std::stack<T>::container_type::reverse_iterator riter;
-        riter	rbegin();
-		riter	rend();
+        typedef typename std::stack<T>::container_type::reverse_iterator riterator;
+        riterator	rbegin() { return (this->c.rbegin()); };
+		riterator	rend() { return (this->c.rend()); };
+
+		typedef typename std::stack<T>::container_type::const_iterator citerator;
+        citerator	cbegin() { return (this->c.begin()); };
+		citerator	cend() { return (this->c.end()); };
+
+		typedef typename std::stack<T>::container_type::const_reverse_iterator criterator;
+        criterator	crbegin() { return (this->c.rbegin()); };
+		criterator	crend() { return (this->c.rend()); };
 };
 
 #endif

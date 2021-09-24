@@ -6,7 +6,7 @@
 #    By: isfernan <isfernan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/21 15:15:50 by isfernan          #+#    #+#              #
-#    Updated: 2021/09/21 15:16:40 by isfernan         ###   ########.fr        #
+#    Updated: 2021/09/24 11:54:51 by isfernan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,16 @@ SRCS 		= main.cpp	span.cpp
 
 OBJS 		= $(SRCS:.cpp=.o)
 
-CXXFLAGS	= -Wall -Werror -Wextra
+CXX			= clang++
+
+CXXFLAGS	= -Wall -Werror -Wextra -std=c++98
 
 NAME		= Span
 
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-			-@clang++ $(CXXFLAGS) -o $(NAME) $(OBJS) -std=c++98
+			$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 clean:
 			-@rm -f $(OBJS)
